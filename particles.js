@@ -34,7 +34,7 @@ class Emitter {
     spawnInterval() {
         setTimeout(() => {
             console.log("spawning particle")
-            var particle =  new Particle(this.classname, this.lifespan, {top: "72vh", left: 200 + "px"}, this.container);
+            var particle =  new Particle(this.classname, this.lifespan, {top: "0", left: 0}, this.container);
             particle.spawn();
             this.spawnInterval();
         }, 
@@ -44,7 +44,6 @@ class Emitter {
 
 class Particle {
     constructor(classname, lifespan, position, container) {
-        this.color = "red";
         this.position = position;
         this.element = document.createElement("div");
         

@@ -80,7 +80,7 @@
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            <div class="card-actions">
+                            <div class="card-actions" id="ps-container" >
                                 <svg id="favorite-filled" width="2.5vh" height="2.5vh" viewBox="0 0 16 16">
                                     <g id="FavoriteOutlined16" stroke="none" strokeWidth="1" fill={color}
                                         fillRule="evenodd">
@@ -173,7 +173,7 @@
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            <div class="card-actions">
+                            <div  class="card-actions">
                                 <svg id="favorite-filled" width="2.5vh" height="2.5vh" viewBox="0 0 16 16">
                                     <g id="FavoriteOutlined16" stroke="none" strokeWidth="1" fill={color}
                                         fillRule="evenodd">
@@ -205,6 +205,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="card-actions">
+                                
                                 <svg id="favorite-filled" width="2.5vh" height="2.5vh" viewBox="0 0 16 16">
                                     <g id="FavoriteOutlined16" stroke="none" strokeWidth="1" fill={color}
                                         fillRule="evenodd">
@@ -267,7 +268,6 @@
                 </div>
 
             </div>
-            <div id="ps-container"></div>
 
         </div>
     </main>
@@ -295,24 +295,23 @@
     }
 
     :root {
-        /*--main-background-color: rgb(0, 255, 0);*/
-        --main-background-color: transparent;
+        --main-background-color: rgb(0, 255, 255);
+        /*--main-background-color: transparent;*/
         --ratio-unit-size: calc(99vh/16);
         --text-color: white;
         --background-containers: white;
         --circle-active-color: #e88a3e;
-        --card-icon-color: blue;
+        --card-icon-color: #3583fa;
     }
 
     html {
         padding: 0;
         margin: 0;
     }
-/*720 x1280*/
+
     body {
         background-color: transparent;
         font-family: Proxima Nova, -apple-system, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
-        /* background-color: rgba(0,0,0,0)!important; */
         height: 100vh;
         width: 100vw;
         padding: 0;
@@ -328,11 +327,11 @@
     }
 
     .main-container {
-        width: 411px;/*calc(var(--ratio-unit-size)*9);*/
-        height: 731px;/*calc(var(--ratio-unit-size)*16);*/
+        width: 405px;/*calc(var(--ratio-unit-size)*9);*/
+        height: 720px;/*calc(var(--ratio-unit-size)*16);*/
         background-color: var(--main-background-color);
         position: relative;
-        border: 4px solid black;
+        border: none;
         display: flex;
         flex-direction: column;
     }
@@ -458,7 +457,7 @@
     }
 
     .card {
-        order:2;
+        order:3;
         margin-right: 1em;
         width: calc(var(--ratio-unit-size)*2.5);
         height: 24vh;
@@ -674,49 +673,76 @@
     var jazzCircle = document.getElementById("jazzcircle")
     function wholeAnimation() {
         setTimeout(() => {
-            // "primer-destaque-grupo"
+            // Carousel appears
             jazzCircle.classList.add("highlight");
             jazzCarousel.classList.remove("slideDown");
             cards[0].classList.add("active");
+            // (5s, "carousel appears");
         }, 5000);
 
         setTimeout(() => {
-            // "primer-destaque-grupo"
+            // Highlight first card
+            // (10s, "highlight first card");
             cards[0].classList.add("highlight");
         }, 10000);
 
         setTimeout(() => {
-            // "primer-destaque-grupo"
+            // Second card appears and highlights
+            // remove highlight from first card 
+            
+            // (15s, "highlight only second card");
             cards[0].classList.remove("highlight");
             cards[1].classList.add("active");
             cards[1].classList.add("highlight");
         }, 15000);
 
         setTimeout(() => {
-            // "primer-destaque-grupo"
+            // Third card appears and highlights
+            // remove highlight from second card 
+            // (20s, "highlight only third card");
             cards[1].classList.remove("highlight");
             cards[2].classList.add("active");
             cards[2].classList.add("highlight");
         }, 20000);
 
         setTimeout(() => {
-            // "primer-destaque-grupo"
+            // add highlight to second card
+            // (25s, "add highlight to second card");
+            cards[2].classList.remove("highlight");
+            void cards[2].offsetWidth;
+            cards[2].classList.add("highlight");
             cards[1].classList.add("highlight");
         }, 25000);
 
         setTimeout(() => {
-            // "primer-destaque-grupo"
+            // fourth card appears and highlights,
+            // Remove other highlights
+            // (30s, "fourth card appears and highlights");
+        
             cards[1].classList.remove("highlight");
             cards[2].classList.remove("highlight");
             cards[3].classList.add("active");
             cards[3].classList.add("highlight");
         }, 30000);
+
         setTimeout(() => {
-            // "primer-destaque-grupo"
-                        
+            // User hearts first car
+            // (35s, "User hearts second car");
+            cards[0].getElementsByClassName("card-actions")[0].classList.add("favorited");
+        }, 35000);
+        
+        setTimeout(() => {     
+            // Spawn PS
+            // (40s, "Spawn particle system");                   
             var particleSystem = new ParticlesSystem();
             particleSystem.init();
-        }, 35000);
+        }, 38000);
+
+        setTimeout(() => {     
+            // Spawn PS
+            // (40s, "Spawn particle system");                   
+            cards[1].style.order = 2;
+        }, 40000);
     }
     wholeAnimation()
 </script>
