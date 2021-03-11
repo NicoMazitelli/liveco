@@ -68,4 +68,4 @@ class Particle {
 }
 
 var particleSystem = new ParticlesSystem();
-particleSystem.init();
+//particleSystem.init();
