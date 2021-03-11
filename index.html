@@ -308,7 +308,7 @@
         padding: 0;
         margin: 0;
     }
-
+/*720 x1280*/
     body {
         background-color: transparent;
         font-family: Proxima Nova, -apple-system, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
@@ -328,8 +328,8 @@
     }
 
     .main-container {
-        width: calc(var(--ratio-unit-size)*9);
-        height: calc(var(--ratio-unit-size)*16);
+        width: 411px;/*calc(var(--ratio-unit-size)*9);*/
+        height: 731px;/*calc(var(--ratio-unit-size)*16);*/
         background-color: var(--main-background-color);
         position: relative;
         border: 4px solid black;
@@ -675,7 +675,7 @@
     function wholeAnimation() {
         setTimeout(() => {
             // "primer-destaque-grupo"
-            jazzCircle.classList.add("circle-active");
+            jazzCircle.classList.add("highlight");
             jazzCarousel.classList.remove("slideDown");
             cards[0].classList.add("active");
         }, 5000);
