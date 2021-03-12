@@ -1,20 +1,25 @@
 var jazzCarousel = document.getElementById("jazz-carousel");
 var jazzCarouselContainer = document.getElementsByClassName("carousel-container")[0];
 var cards = jazzCarousel.getElementsByClassName("card");
-var jazzCircle = document.getElementById("jazzcircle")
+var carrouselTitleContainer = document.getElementsByClassName("group-current")[0];
+// var jazzCircle = document.getElementById("jazzcircle")
 
 function setDebugText(debug, timestamp, text) {
     if (debug) { document.getElementById("debug").innerHTML = "at " + timestamp + " - " + text };
 }
 
 function showCarousel() {
-    jazzCircle.classList.add("highlight");
+    //jazzCircle.classList.add("highlight");
     jazzCarouselContainer.classList.remove("slideDown");
 }
 
 function hideCarousel() {
-    jazzCircle.classList.remove("highlight");
+    //jazzCircle.classList.remove("highlight");
     jazzCarouselContainer.classList.add("slideDown");
+}
+
+function showCarrouselTitle() {
+    carrouselTitleContainer.classList.add("active");
 }
 
 function showCard(index) {
@@ -60,59 +65,88 @@ function wholeAnimation(debug = false) {
         // Third card appears and highlights
         // remove highlight from second card 
         setDebugText(debug, "20s", "highlight only third card");
-        cards[1].classList.remove("highlight");
         removeHighlightCard(1);
         showCard(2);
         highlightCard(2);
+        showCarrouselTitle();
         scrollToRight();
-    }, 20000);
+    }, 20000)
 
     setTimeout(() => {
-        // add highlight to second card
-        setDebugText(debug, "25s", "add highlight to second card");
-        removeHighlightCard(2);
-        // reset the animation
-        void cards[2].offsetWidth;
-        highlightCard(2);
-        highlightCard(1);
-        scrollToRight();
-    }, 25000);
-
-    setTimeout(() => {
-        // fourth card appears and highlights,
-        // Remove other highlights
-        setDebugText(debug, "30s", "fourth card appears and highlights");
-        removeHighlightCard(1);
+        // fourth card appears and highlights
+        // Third highlight from second card 
+        setDebugText(debug, "25s", "highlight only fourth card");
         removeHighlightCard(2);
         showCard(3);
         highlightCard(3);
         scrollToRight();
+    }, 25000);
+
+    setTimeout(() => {
+        // fifth card appears and highlights
+        // fourth highlight from second card 
+        setDebugText(debug, "30s", "highlight only fifth card");
+        removeHighlightCard(3);
+        showCard(4);
+        highlightCard(4);
+        scrollToRight();
     }, 30000);
 
     setTimeout(() => {
-        // User hearts first car
-        setDebugText(debug, "35s", "User hearts second car");
-        favCard(0);
+        // sixth card appears and highlights
+        // fifth highlight from second card 
+        setDebugText(debug, "35s", "highlight only sixth card");
+        removeHighlightCard(4);
+        showCard(5);
+        highlightCard(5);
+        scrollToRight();
     }, 35000);
-    
-    setTimeout(() => {     
-        // Spawn PS
-        setDebugText(debug, "38s", "People likes third card");                   
-        var particleSystem = new ParticlesSystem();
-        particleSystem.init();
-    }, 38000);
 
     setTimeout(() => {
-        // Reorder cards
-        setDebugText(debug, "40s", "Reorder most liked card");                   
-        cards[1].style.order = 2;
+        // seventh card appears and highlights
+        // sixth highlight from second card 
+        setDebugText(debug, "40s", "highlight only seventh card");
+        removeHighlightCard(5);
+        showCard(6);
+        highlightCard(6);
+        scrollToRight();
     }, 40000);
 
     setTimeout(() => {
-        // shut carousel
-        setDebugText(debug, "45s", "shut carousel");                   
-        hideCarousel();
+        // add highlight to fifth card
+        setDebugText(debug, "45s", "add highlight to fifth card");
+        removeHighlightCard(6);
+        // reset the animation
+        void cards[2].offsetWidth;
+        highlightCard(4);
+        highlightCard(6);
+        scrollToRight();
     }, 45000);
+
+    setTimeout(() => {
+        // User hearts first car
+        setDebugText(debug, "50s", "User hearts fifth card");
+        favCard(0);
+    }, 50000);
+    
+    setTimeout(() => {     
+        // Spawn PS
+        setDebugText(debug, "52s", "People likes third card");                   
+        var particleSystem = new ParticlesSystem();
+        particleSystem.init();
+    }, 52000);
+
+    setTimeout(() => {
+        // Reorder cards
+        setDebugText(debug, "54s", "Reorder most liked card");                   
+        cards[1].style.order = 2;
+    }, 54000);
+
+    setTimeout(() => {
+        // shut carousel
+        setDebugText(debug, "56s", "shut carousel");                   
+        hideCarousel();
+    }, 56000);
 }
 
 wholeAnimation(true)
