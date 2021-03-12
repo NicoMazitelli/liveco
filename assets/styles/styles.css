@@ -5,7 +5,11 @@
     .hidden {
         display: none !important;
     }
-
+    body {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
     .highlight {
         animation: flashing 1.5s infinite;
         animation-timing-function: linear;
