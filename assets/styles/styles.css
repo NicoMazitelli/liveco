@@ -125,7 +125,7 @@
         justify-content: space-evenly;
         width: auto;
         padding: 15px;
-        height: 40%;
+        height: 42%;
         box-sizing: border-box;
 
     }
@@ -141,7 +141,7 @@
         min-width: calc(var(--ratio-unit-size)*1);
         width: auto;
         margin-top: 4px;
-        font-size: 12px;
+        font-size: 18px;
         font-weight: 600;
         color: var(--text-color);
         display: block;
@@ -197,15 +197,15 @@
     .group-current {
         color: var(--text-color);
         position: absolute;
-        top: 110px;
+        bottom: 220px;
         left: 15px;
         font-weight: 600;
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .carrousel {
         width: 100%;
-        height: 225px;
+        height: 260px;
         position: absolute;
         bottom: 0;
         overflow: overlay;
@@ -268,12 +268,12 @@
     .card-price {
         margin-top: 0.75em;
         text-align: center;
-        font-size: 2.5vh;
+        font-size: 20px;
     }
 
     .card-tags {
         margin-top: 0.375em;
-        font-size: 1.8vh;
+        font-size: 16px;
         white-space: normal;
         text-align: center;
         color: rgba(0, 0, 0, 0.45);
@@ -322,4 +322,10 @@
     .fadeOutUpLefter {
         -webkit-animation-name: fadeOutUpLefter;
         animation-name: fadeOutUpLefter;
+    }
+
+    .close-live-button {
+        color: var(--background-containers);
+        text-align: end;
+        font-size: 20px;
     }
