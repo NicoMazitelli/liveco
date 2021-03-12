@@ -235,7 +235,7 @@
         order: 3;
         margin-right: 15px;
         width: calc(var(--ratio-unit-size)*2.5);
-        height: 24vh;
+        height: 25vh;
         min-height: 24vh;
         min-width: 6em;
         align-self: flex-end;
