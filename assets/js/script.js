@@ -1,6 +1,7 @@
 var jazzCarousel = document.getElementById("jazz-carousel");
 var jazzCarouselContainer = document.getElementsByClassName("carousel-container")[0];
 var cards = jazzCarousel.getElementsByClassName("card");
+var carrouselTitleContainer = document.getElementsByClassName("group-current")[0];
 // var jazzCircle = document.getElementById("jazzcircle")
 
 function setDebugText(debug, timestamp, text) {
@@ -15,6 +16,10 @@ function showCarousel() {
 function hideCarousel() {
     //jazzCircle.classList.remove("highlight");
     jazzCarouselContainer.classList.add("slideDown");
+}
+
+function showCarrouselTitle() {
+    carrouselTitleContainer.classList.add("active");
 }
 
 function showCard(index) {
@@ -63,6 +68,7 @@ function wholeAnimation(debug = false) {
         removeHighlightCard(1);
         showCard(2);
         highlightCard(2);
+        showCarrouselTitle();
         scrollToRight();
     }, 20000)
 
