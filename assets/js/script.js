@@ -133,7 +133,6 @@ function wholeAnimation(debug = false) {
         removeHighlightCard(0);
         removeHighlightCard(6);
         hideCarousel();
-        wholeAnimation();
     }, 56000);
 }
 
