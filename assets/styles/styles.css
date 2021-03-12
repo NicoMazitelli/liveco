@@ -20,7 +20,7 @@
     }
     .highlight {
         /* animation: flashing 1.5s infinite; */
-        border: 3px solid #FF7733;
+        border: 3px solid #FF7733 !important;
         /* animation-timing-function: linear; */
         order:1!important;
     }
@@ -251,6 +251,7 @@
 
     .active {
         display: flex;
+        border: 3px solid rgba(0, 0, 0, 0);
     }
     .card-body {
         padding: 0.75em;
@@ -279,7 +280,7 @@
 
     .card-tags {
         margin-top: 0.375em;
-        font-size: 16px;
+        font-size: 14px;
         white-space: normal;
         text-align: center;
         color: rgba(0, 0, 0, 0.45);
@@ -334,4 +335,5 @@
         color: var(--background-containers);
         text-align: end;
         font-size: 20px;
+        flex-grow: 1;
     }
