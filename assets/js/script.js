@@ -65,6 +65,7 @@ function wholeAnimation(debug = false) {
         // remove highlight from second card 
         setDebugText(debug, "20s", "highlight only third card");
         transitionToCard(4)
+        showCarrouselTitle();
         
     }, 20000)
 
@@ -128,7 +129,9 @@ function wholeAnimation(debug = false) {
 
     setTimeout(() => {
         // shut carousel
-        setDebugText(debug, "56s", "shut carousel");                   
+        setDebugText(debug, "56s", "shut carousel");
+        removeHighlightCard(0);
+        removeHighlightCard(6);
         hideCarousel();
     }, 56000);
 }
