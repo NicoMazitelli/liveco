@@ -56,60 +56,43 @@ function wholeAnimation(debug = false) {
         // remove highlight from first card 
         
         setDebugText(debug, "15s", "highlight only second card");
-        removeHighlightCard(0);
-        showCard(1);
-        highlightCard(1)
+        transitionToCard(1)
     }, 15000);
 
     setTimeout(() => {
         // Third card appears and highlights
         // remove highlight from second card 
         setDebugText(debug, "20s", "highlight only third card");
-        removeHighlightCard(1);
-        showCard(2);
-        highlightCard(2);
-        showCarrouselTitle();
-        scrollToRight();
+        transitionToCard(2)
+        
     }, 20000)
 
     setTimeout(() => {
         // fourth card appears and highlights
         // Third highlight from second card 
         setDebugText(debug, "25s", "highlight only fourth card");
-        removeHighlightCard(2);
-        showCard(3);
-        highlightCard(3);
-        scrollToRight();
+        transitionToCard(3)
     }, 25000);
 
     setTimeout(() => {
         // fifth card appears and highlights
         // fourth highlight from second card 
         setDebugText(debug, "30s", "highlight only fifth card");
-        removeHighlightCard(3);
-        showCard(4);
-        highlightCard(4);
-        scrollToRight();
+        transitionToCard(4)
     }, 30000);
 
     setTimeout(() => {
         // sixth card appears and highlights
         // fifth highlight from second card 
         setDebugText(debug, "35s", "highlight only sixth card");
-        removeHighlightCard(4);
-        showCard(5);
-        highlightCard(5);
-        scrollToRight();
+        transitionToCard(5)
     }, 35000);
 
     setTimeout(() => {
         // seventh card appears and highlights
         // sixth highlight from second card 
         setDebugText(debug, "40s", "highlight only seventh card");
-        removeHighlightCard(5);
-        showCard(6);
-        highlightCard(6);
-        scrollToRight();
+        transitionToCard(6)
     }, 40000);
 
     setTimeout(() => {
@@ -120,7 +103,6 @@ function wholeAnimation(debug = false) {
         void cards[2].offsetWidth;
         highlightCard(4);
         highlightCard(6);
-        scrollToRight();
     }, 45000);
 
     setTimeout(() => {
@@ -154,4 +136,31 @@ wholeAnimation(true)
 function scrollToRight() {
     var maxScrollLeft = jazzCarousel.scrollWidth - jazzCarousel.clientWidth;
     jazzCarousel.scrollLeft = maxScrollLeft;
+}
+
+function cardAnimation() {
+    for(var i = 0; i < cards.length; i++) {
+        if(cards[i].className.indexOf("active") != -1) {
+            cards[i].style.transition = "transform 0.5s ease";
+            cards[i].style.transform = "translate(-120px, 0px)";
+        }
+    }
+}
+
+function transitionToCard(card) {
+    removeHighlightCard(card - 1);
+    cardAnimation();
+    setTimeout(() => {
+        showCard(card);
+        highlightCard(card);
+        removeTransform();
+    }, 250);
+}
+
+function removeTransform() {
+    for(var i = 0; i < cards.length; i++) {
+        if(cards[i].className.indexOf("active") != -1) {
+            cards[i].style = null;
+        }
+    }
 }
