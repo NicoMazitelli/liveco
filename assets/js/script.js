@@ -103,8 +103,8 @@ function wholeAnimation(debug = false) {
         removeHighlightCard(0);
         // reset the animation
         void cards[6].offsetWidth;
-        highlightCard(6);
         highlightCard(0);
+        orderFirstCardsToSecondPositon();
     }, 45000);
 
     setTimeout(() => {
@@ -124,7 +124,7 @@ function wholeAnimation(debug = false) {
     setTimeout(() => {
         // Reorder cards
         setDebugText(debug, "54s", "Reorder most liked card");                   
-        cards[5].style.order = 2;
+        animationFavorite();
     }, 54000);
 
     setTimeout(() => {
@@ -141,6 +141,26 @@ wholeAnimation()
 function scrollToRight() {
     var maxScrollLeft = jazzCarousel.scrollWidth - jazzCarousel.clientWidth;
     jazzCarousel.scrollLeft = maxScrollLeft;
+}
+
+function animationFavorite() {
+    cards[5].style.transition = "transform 1s ease";
+    cards[5].style.transform = "translate(485px, 0px)";
+
+    setTimeout(() => {
+        cards[5].style = {};
+        cards[5].style.order = 2;
+    }, 1000)
+}
+
+function orderFirstCardsToSecondPositon() {
+    cards[6].style.transition = "transform 1s ease";
+    cards[6].style.transform = "translate(608px, 0px)";
+
+    setTimeout(() => {
+        cards[6].style = null;
+        highlightCard(6);
+    }, 1000)
 }
 
 function cardAnimation() {
