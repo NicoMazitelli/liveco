@@ -20,9 +20,13 @@
     }
     .highlight {
         /* animation: flashing 1.5s infinite; */
-        border: 3px solid #FF7733 !important;
+        border: 3px solid var(--highlight-color) !important;
         /* animation-timing-function: linear; */
         order:1!important;
+    }
+
+    .highlight .card-title {
+        background-color: var(--highlight-color);
     }
 
     .slideDown {
@@ -38,6 +42,7 @@
         --background-containers: white;
         --circle-active-color: #e88a3e;
         --card-icon-color: #3583fa;
+        --highlight-color: #FF7733;
     }
 
     html {
@@ -236,7 +241,7 @@
         order: 3;
         margin-right: 15px;
         width: calc(var(--ratio-unit-size)*2.5);
-        height: 25vh;
+        height: 190px;
         min-height: 24vh;
         min-width: 6em;
         align-self: flex-end;
@@ -284,6 +289,16 @@
         white-space: normal;
         text-align: center;
         color: rgba(0, 0, 0, 0.45);
+    }
+
+    .card-title {
+        text-align: center;
+        font-size: 12px;
+        color: var(--text-color);
+        background-color: rgba(0, 0, 0, 0.45);
+        padding: 4px;
+        margin-top: 8px;
+        border-radius: 10px;
     }
 
     .card-actions.favorited>#favorite-filled {
