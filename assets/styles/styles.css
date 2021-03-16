@@ -140,7 +140,7 @@
         width: fit-content;
         text-align: center;
         position: relative;
-        margin-bottom: 5px;
+        /* margin-bottom: 5px; */
     }
 
     .group-container span {
@@ -186,18 +186,6 @@
     }
     .circle-active + .mini-circle {
         display:block;
-    }
-
-    .group-container:nth-child(1) .circle{
-        background-image: url('../images/pua1.png');
-    }
-
-    .group-container:nth-child(2) .circle{
-        background-image: url('../images/pua2.png');
-    }
-
-    .group-container:nth-child(3) .circle{
-        background-image: url('../images/pua3.png');
     }
 
     .group-current {

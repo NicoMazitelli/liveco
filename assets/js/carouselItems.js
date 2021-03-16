@@ -37,13 +37,40 @@ function createCarouselElement(product) {
           </div>
       </div>
   </div>
-  `
+  `;
 }
 
-function carouselElements() {
+function createGroupItem(group) {
+  var { id, name, image } = group;
+  return `
+  <div class="group-container" id="group-${id}">
+      <div id="jazzcircle" class="circle" style="background-image: url('./assets/images/${image}');"></div>
+      <div class="mini-circle"></div>
+      <span>${name}</span>
+  </div>
+  `;
+}
+
+function actionGroups() {
+  data.groups.forEach(({id}) => {
+    document.getElementById(`group-${id}`).addEventListener('click', () => {
+      carouselElements(id);
+    });
+  });
+}
+
+function carouselElements(currentGroup = null) {
   var carousel = document.getElementById('carrousel-items');
-  var products = data.products.reduce((acc, currentProduct) => `${acc} ${createCarouselElement(currentProduct)}`, '');
+  const dataFiltered = currentGroup ? 
+    data.products.filter((product) => product.groups.includes(currentGroup)) :
+    data.products;
+  var products = dataFiltered.reduce((acc, currentProduct) => `${acc} ${createCarouselElement(currentProduct)}`, '');
   carousel.innerHTML = products;
 }
 
-carouselElements();
+function groupElements() {
+  var groups = document.getElementById('group-list');
+  var items = data.groups.reduce((acc, currentItem) => `${acc} ${createGroupItem(currentItem)}`, '');
+  groups.innerHTML = items;
+  actionGroups();
+}

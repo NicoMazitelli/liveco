@@ -179,6 +179,9 @@ function executeEvents(index = 0, debug = false) {
     }
 }
 
+// Uncomment next line to show groups
+// groupElements(); 
+carouselElements();
 executeEvents();
 
 function scrollToRight() {
