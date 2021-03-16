@@ -201,7 +201,7 @@ function scrollToRight() {
 
 function animationFavorite() {
     cards[5].style.transition = "transform 1s ease";
-    cards[5].style.transform = "translate(485px, 0px)";
+    cards[5].style.transform = "translate(448px, 0px)";
 
     setTimeout(() => {
         cards[5].style = {};
@@ -211,7 +211,7 @@ function animationFavorite() {
 
 function orderFirstCardsToMiddlePositon() {
     cards[6].style.transition = "transform 1s ease";
-    cards[6].style.transform = "translate(608px, 0px)";
+    cards[6].style.transform = "translate(560px, 0px)";
 
     setTimeout(() => {
         cards[6].style = null;
