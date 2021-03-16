@@ -60,6 +60,7 @@ var events = [
     },
     {
         action: (debug, timeWait) => {
+            enabledOrDisabledVersusMode(false);
             // fifth card appears and highlights
             // fourth highlight from second card
             executionTime += timeWait;
@@ -81,7 +82,6 @@ var events = [
     },
     {
         action: (debug, timeWait) => {
-            enabledOrDisabledVersusMode(false)
             // User hearts first car
             executionTime += timeWait;
             setDebugText(debug, (executionTime/1000) + "s", "User hearts fifth card");
@@ -200,7 +200,7 @@ function animationFavorite() {
 
 function orderFirstCardsToMiddlePositon(index) {
     cards[index].style.transition = "transform 1s ease";
-    cards[index].style.transform = "translate(560px, 0px)";
+    cards[index].style.transform = "translate(224px, 0px)";
 
     setTimeout(() => {
         cards[index].style = null;
