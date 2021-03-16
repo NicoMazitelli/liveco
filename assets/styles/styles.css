@@ -29,6 +29,11 @@
         background-color: var(--highlight-color);
     }
 
+    .highlight-versus .card {
+        transform: translate(-55px, 0px);
+        transition: transform 1s ease;
+    }
+
     .slideDown {
         transform: translateY(-200px)!important;
         opacity:0 !important;
