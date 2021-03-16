@@ -44,7 +44,7 @@ function createGroupItem(group) {
   var { id, name, image } = group;
   return `
   <div class="group-container" id="group-${id}">
-      <div id="jazzcircle" class="circle" style="background-image: url('./assets/images/${image}');"></div>
+      <div id="${id}" class="circle" style="background-image: url('./assets/images/${image}');"></div>
       <div class="mini-circle"></div>
       <span>${name}</span>
   </div>
