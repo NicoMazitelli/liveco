@@ -32,6 +32,9 @@ var events = [
             setDebugText(debug, (executionTime/1000) + "s", "highlight only third card");
             transitionToCard(4)
             showCarrouselTitle();
+            scrollToRight();
+            scrollToRight();
+            scrollToRight();
         },
         timeToWait: 5000
     },
@@ -84,7 +87,7 @@ var events = [
             // reset the animation
             void cards[6].offsetWidth;
             highlightCard(0);
-            orderFirstCardsToSecondPositon();
+            orderFirstCardsToMiddlePositon();
         },
         timeToWait: 5000
     },
@@ -118,17 +121,17 @@ var events = [
         },
         timeToWait: 2000
     },
-    {
-        action: (debug, timeWait) => {
-            executionTime += timeWait;
-            setDebugText(debug, (executionTime/1000) + "s", "shut carousel");
-            // shut carousel
-            removeHighlightCard(0);
-            removeHighlightCard(6);
-            hideCarousel();
-        },
-        timeToWait: 2000
-    }
+    // {
+    //     action: (debug, timeWait) => {
+    //         executionTime += timeWait;
+    //         setDebugText(debug, (executionTime/1000) + "s", "shut carousel");
+    //         // shut carousel
+    //         removeHighlightCard(0);
+    //         removeHighlightCard(6);
+    //         hideCarousel();
+    //     },
+    //     timeToWait: 2000
+    // }
 
 ];
 // var jazzCircle = document.getElementById("jazzcircle")
@@ -199,7 +202,7 @@ function animationFavorite() {
     }, 1000)
 }
 
-function orderFirstCardsToSecondPositon() {
+function orderFirstCardsToMiddlePositon() {
     cards[6].style.transition = "transform 1s ease";
     cards[6].style.transform = "translate(608px, 0px)";
 

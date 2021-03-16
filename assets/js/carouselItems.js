@@ -1,11 +1,12 @@
 
-function createCarouselElement(product) {
+function createCarouselElement(product, index) {
   var { id, title, tags, price, image } = product;
+  var particleAttribute = index == 5 ? 'id="ps-container"' : '';
   var tagsString = tags.reduce((acc, currentTag) => `${acc} #${currentTag}`, '');
   return `
   <div data-order=${id} class="card">
       <div class="card-body">
-          <div class="card-actions">
+          <div class="card-actions" ${particleAttribute}>
               <svg id="favorite-filled" width="2.5vh" height="2.5vh" viewBox="0 0 16 16">
                   <g id="FavoriteOutlined16" stroke="none" strokeWidth="1" fill={color}
                       fillRule="evenodd">
@@ -64,7 +65,7 @@ function carouselElements(currentGroup = null) {
   const dataFiltered = currentGroup ? 
     data.products.filter((product) => product.groups.includes(currentGroup)) :
     data.products;
-  var products = dataFiltered.reduce((acc, currentProduct) => `${acc} ${createCarouselElement(currentProduct)}`, '');
+  var products = dataFiltered.reduce((acc, currentProduct, index) => `${acc} ${createCarouselElement(currentProduct, index)}`, '');
   carousel.innerHTML = products;
 }
 
