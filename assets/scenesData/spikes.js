@@ -5,7 +5,7 @@ const data = {
     {
       "id": 0,
       "price": "$ 5999",
-      "tags": ["bluechip", "1.5mm"],
+      "tags": ["bluechip", "1.5"],
       "title": "BC JAZZ 60",
       "groups": [1],
       "image": "pua6.png"
@@ -13,7 +13,7 @@ const data = {
     {
       "id": 1,
       "price": "$ 429",
-      "tags": ["tortex", "1.5mm"],
+      "tags": ["tortex", "1.5"],
       "title": "TORTEX 1.5",
       "groups": [1],
       "image": "pua5.png"
@@ -21,7 +21,7 @@ const data = {
     {
       "id": 2,
       "price": "$ 89",
-      "tags": ["ultex", "1.38mm"],
+      "tags": ["ultex", "1.38"],
       "title": "ULTEX 1.38",
       "groups": [3],
       "image": "pua4.png"
@@ -29,7 +29,7 @@ const data = {
     {
       "id": 3,
       "price": "$ 119",
-      "tags": ["lexan", "3mm"],
+      "tags": ["lexan", "3"],
       "title": "STUBBY 3.0",
       "groups": [2],
       "image": "pua3.png"
@@ -37,23 +37,23 @@ const data = {
     {
       "id": 4,
       "price": "$ 249",
-      "tags": ["nylon", "1.5mm"],
-      "title": "KIRK HAMM",
+      "tags": ["nylon", "1.5"],
+      "title": "KIRK HA",
       "groups": [3],
       "image": "pua2.png"
     },
     {
       "id": 5,
       "price": "$ 159",
-      "tags": ["nylon", "1.38mm"],
-      "title": "KIRK HAMM",
+      "tags": ["nylon", "1.38"],
+      "title": "KIRK HA",
       "groups": [2],
       "image": "pua1.png"
     },
     {
       "id": 6,
       "price": "$ 119",
-      "tags": ["nylon", "1.4mm"],
+      "tags": ["nylon", "1.4"],
       "title": "JAZZ 3 1.14",
       "groups": [1],
       "image": "pua.png"
