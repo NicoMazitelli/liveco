@@ -90,6 +90,7 @@ var events = [
     },
     {
         action: (debug, timeWait) => {
+            enabledOrDisabledVersusMode(false)
             // User hearts first car
             executionTime += timeWait;
             setDebugText(debug, (executionTime/1000) + "s", "User hearts fifth card");
@@ -179,6 +180,15 @@ function executeEvents(index = 0, debug = false) {
     }
 }
 
+function enabledOrDisabledVersusMode(enabled = true) {
+    var carrouselItemContainer = document.getElementById("carrousel-items");
+    if(enabled) {
+        carrouselItemContainer.classList.add("highlight-versus");
+    } else {
+        carrouselItemContainer.classList.remove("highlight-versus");
+    }
+}
+
 // Uncomment next line to show groups
 // groupElements(); 
 carouselElements();
@@ -206,6 +216,9 @@ function orderFirstCardsToMiddlePositon() {
     setTimeout(() => {
         cards[6].style = null;
         highlightCard(6);
+        setTimeout(() => {
+            enabledOrDisabledVersusMode();
+        }, 300)
     }, 1000)
 }
 
