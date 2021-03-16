@@ -10,7 +10,7 @@ var events = [
             executionTime += timeWait;
             setDebugText(debug, (executionTime/1000) + "s", "carousel appears");
             showCarousel();
-            showCard(6);
+            showCard(5);
         },
         timeToWait: 5000
     },
@@ -20,7 +20,7 @@ var events = [
             // remove highlight from first card
             executionTime += timeWait;
             setDebugText(debug, (executionTime/1000) + "s", "highlight only second card");  
-            transitionToCard(5)
+            transitionToCard(4)
         },
         timeToWait: 5000
     },
@@ -30,7 +30,7 @@ var events = [
             // remove highlight from second card
             executionTime += timeWait;
             setDebugText(debug, (executionTime/1000) + "s", "highlight only third card");
-            transitionToCard(4)
+            transitionToCard(3)
             showCarrouselTitle();
         },
         timeToWait: 5000
@@ -41,7 +41,20 @@ var events = [
             // Third highlight from second card
             executionTime += timeWait;
             setDebugText(debug, (executionTime/1000) + "s", "highlight only fourth card");
-            transitionToCard(3)
+            transitionToCard(2)
+        },
+        timeToWait: 5000
+    },
+    {
+        action: (debug, timeWait) => {
+            // add highlight to fifth card
+            executionTime += timeWait;
+            setDebugText(debug, (executionTime/1000) + "s", "add highlight to fifth card");
+            removeHighlightCard(2);
+            // reset the animation
+            void cards[5].offsetWidth;
+            highlightCard(2);
+            orderFirstCardsToMiddlePositon(5);
         },
         timeToWait: 5000
     },
@@ -51,7 +64,8 @@ var events = [
             // fourth highlight from second card
             executionTime += timeWait;
             setDebugText(debug, (executionTime/1000) + "s", "highlight only fifth card");
-            transitionToCard(2)
+            removeHighlightCard(5)
+            transitionToCard(1)
         },
         timeToWait: 5000
     },
@@ -61,30 +75,7 @@ var events = [
             // fifth highlight from second card 
             executionTime += timeWait;
             setDebugText(debug, (executionTime/1000) + "s", "highlight only sixth card");
-            transitionToCard(1)
-        },
-        timeToWait: 5000
-    },
-    {
-        action: (debug, timeWait) => {
-            // seventh card appears and highlights
-            // sixth highlight from second card
-            executionTime += timeWait;
-            setDebugText(debug, (executionTime/1000) + "s", "highlight only seventh card");
             transitionToCard(0)
-        },
-        timeToWait: 5000
-    },
-    {
-        action: (debug, timeWait) => {
-            // add highlight to fifth card
-            executionTime += timeWait;
-            setDebugText(debug, (executionTime/1000) + "s", "add highlight to fifth card");
-            removeHighlightCard(0);
-            // reset the animation
-            void cards[6].offsetWidth;
-            highlightCard(0);
-            orderFirstCardsToMiddlePositon();
         },
         timeToWait: 5000
     },
@@ -94,7 +85,6 @@ var events = [
             // User hearts first car
             executionTime += timeWait;
             setDebugText(debug, (executionTime/1000) + "s", "User hearts fifth card");
-            removeHighlightCard(6);
             favCard(1);
         },
         timeToWait: 5000
@@ -125,7 +115,7 @@ var events = [
             setDebugText(debug, (executionTime/1000) + "s", "shut carousel");
             // shut carousel
             removeHighlightCard(0);
-            removeHighlightCard(6);
+            removeHighlightCard(5);
             hideCarousel();
         },
         timeToWait: 2000
@@ -157,7 +147,6 @@ function showCard(index) {
 }
 
 function highlightCard(index) {
-    // console.log(cards, index, cards[index]);
     cards[index].classList.add("highlight");
 }
 
@@ -170,7 +159,7 @@ function favCard(index) {
 }
 
 function executeEvents(index = 0, debug = false) {
-    if(index > events.length > 1) {
+    if(index > events.length - 1 ) {
         return true;
     } else {
         setTimeout(() => {
@@ -209,13 +198,13 @@ function animationFavorite() {
     }, 1000)
 }
 
-function orderFirstCardsToMiddlePositon() {
-    cards[6].style.transition = "transform 1s ease";
-    cards[6].style.transform = "translate(560px, 0px)";
+function orderFirstCardsToMiddlePositon(index) {
+    cards[index].style.transition = "transform 1s ease";
+    cards[index].style.transform = "translate(560px, 0px)";
 
     setTimeout(() => {
-        cards[6].style = null;
-        highlightCard(6);
+        cards[index].style = null;
+        highlightCard(index);
         setTimeout(() => {
             enabledOrDisabledVersusMode();
         }, 300)
