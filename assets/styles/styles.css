@@ -93,6 +93,35 @@
         padding: 15px;
         background: linear-gradient(180deg, #454847, rgba(0, 0, 0, 0.01));
     }
+
+    .header:hover .streamer {
+        display: none;
+    }
+
+    .header:hover .control {
+        display: flex;
+    }
+
+    .control {
+        display: none;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        height: 50px;
+    }
+
+    .header .control button {
+        background: white;
+        border-radius: 1px solid #333;
+        border-radius: 5px;
+    }
+
+    .header .control button:focus {
+        background: #333;
+        color: white;
+    }
+
+
     .carousel-container{
         height: 100%;
         position: relative;

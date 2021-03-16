@@ -162,7 +162,8 @@ function executeEvents(index = 0, debug = false) {
     if(index > events.length - 1 ) {
         return true;
     } else {
-        setTimeout(() => {
+        currentEvent = index === 0 ? null : index;
+        timer = setTimeout(() => {
             events[index].action(debug, events[index].timeToWait);
             executeEvents(index + 1, debug);
         }, events[index].timeToWait)
@@ -178,10 +179,37 @@ function enabledOrDisabledVersusMode(enabled = true) {
     }
 }
 
+function executeSpecificEvent(index, debug = false) {
+    console.log('executeSpecificEvent', index);
+    if(index > events.length - 1 ) {
+        return true;
+    }
+    if (timer !== 0) {
+        console.log('canceling setTimeOut, use control');
+        clearTimeout(timer);
+        timer = 0;
+    }
+    events[index].action(debug, events[index].timeToWait);
+    currentEvent = index;
+}
+
+function buttonListenEvents() {
+    document.getElementById('next-step').addEventListener('click', (ev) => {
+        var eventIndex = currentEvent === null ? 
+            0 : 
+            currentEvent + 1
+        executeSpecificEvent(eventIndex);
+    })
+}
+
+var currentEvent = null;
+var timer = 0;
+
 // Uncomment next line to show groups
 // groupElements(); 
 carouselElements();
-executeEvents();
+executeEvents(0);
+buttonListenEvents();
 
 function scrollToRight() {
     var maxScrollLeft = jazzCarousel.scrollWidth - jazzCarousel.clientWidth;
