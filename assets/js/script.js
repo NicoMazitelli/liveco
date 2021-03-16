@@ -107,7 +107,7 @@ var events = [
             setDebugText(debug, "54s", "Reorder most liked card");
             animationFavorite();
         },
-        timeToWait: 2000
+        timeToWait: 5000
     },
     {
         action: (debug, timeWait) => {
@@ -118,7 +118,7 @@ var events = [
             removeHighlightCard(5);
             hideCarousel();
         },
-        timeToWait: 2000
+        timeToWait: 5000
     }
 
 ];
