@@ -194,7 +194,7 @@ function executeSpecificEvent(index, debug = false) {
 }
 
 function buttonListenEvents() {
-    document.getElementById('next-step').addEventListener('click', (ev) => {
+    document.getElementById('header').addEventListener('click', (ev) => {
         var eventIndex = currentEvent === null ? 
             0 : 
             currentEvent + 1
