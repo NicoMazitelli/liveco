@@ -100,6 +100,32 @@ const data = {
       "groups": [1],
       "image": "pua.png"
     }
+
+    //Grupo 2 
+    // {
+    //   "id": 7,
+    //   "price": "$ 119",
+    //   "tags": ["delrin", "0.73"],
+    //   "title": "351",
+    //   "groups": [2],
+    //   "image": "pua9.png"
+    // },
+    // {
+    //   "id": 8,
+    //   "price": "$ 120",
+    //   "tags": ["tortex", "0.88"],
+    //   "title": "351",
+    //   "groups": [2],
+    //   "image": "pua10.png"
+    // },
+    // {
+    //   "id": 9,
+    //   "price": "$ 159",
+    //   "tags": ["celuloide", "1.17"],
+    //   "title": "351",
+    //   "groups": [2],
+    //   "image": "pua11.png"
+    // }
   ],
   "groups": [
     {
