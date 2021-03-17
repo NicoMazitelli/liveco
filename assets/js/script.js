@@ -240,10 +240,13 @@ function orderFirstCardsToMiddlePositon(index) {
 }
 
 function cardAnimation() {
+    var amountCardsActives = jazzCarousel.getElementsByClassName("card active").length;
+    var translate = amountCardsActives > 2 ? -120 : -55;
+
     for (var i = cards.length - 1; i > 0; i--) {
         if (cards[i].className.indexOf("active") != -1) {
             cards[i].style.transition = "transform 0.5s ease";
-            cards[i].style.transform = "translate(-120px, 0px)";
+            cards[i].style.transform = `translate(${translate}px, 0px)`;
         }
     }
 }
